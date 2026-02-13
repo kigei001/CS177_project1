@@ -32,7 +32,7 @@ class Node:
     def __init__(self, state, parent=None, cost=0):
         self.state = state
         self.parent = parent
-        self.cost = cost  # This is g(n)
+        self.cost = cost  # This is f(n)
 
 
 def generalSearch(problem, searchType):
@@ -44,7 +44,7 @@ def generalSearch(problem, searchType):
     numNodesExpanded = 1
    
 
-    visitedNode = set(); #This is going to have all the nodes that was visited to prevent checking again
+    visitedNode = set(); #This is going to have all the nodes that were visited to prevent checking again
 
     while nodes:
         _, _, node = heapq.heappop(nodes)  #pop the node which has the lowest cost
@@ -153,7 +153,7 @@ def misplacedTile(state): #counts the tiles that are not in the correct position
 
 
 
-def manhattan(state):  #calculate the total distance of all tiles from the goal positions but ignoring 0.
+def manhattan(state):  #calculate the total distance of all tiles from the goal positions, but ignoring 0.
     goal_pos = {1:(0,0), 2:(0,1), 3:(0,2),
                 4:(1,0), 5:(1,1), 6:(1,2),
                 7:(2,0), 8:(2,1)}
@@ -176,7 +176,7 @@ def main():
     
     while (puzzleMode != '1' or puzzleMode != '2'):    #check for invalid inputs
         if(puzzleMode != '1' and puzzleMode !='2'):
-            puzzleMode = input("Invalid input. Type '1' to solve for example puzzle and type '2' to solve the problem you create. \n")
+            puzzleMode = input("Invalid input. Type '1' to solve an example puzzle and type '2' to solve the problem you create. \n")
 
         elif(puzzleMode == '1' or puzzleMode == '2'):
             puzzleMode = int(puzzleMode)
@@ -205,11 +205,11 @@ def main():
 
             
     if(puzzleMode == 1):
-        exampleTest = input("Choose a test example. Type '1' for a easy test, '2' for a normal test, and '3' for a hard test. \n" )
+        exampleTest = input("Choose a test example. Type '1' for an easy test, '2' for a normal test, and '3' for a hard test. \n" )
 
         while (exampleTest != '1' or exampleTest != '2' or exampleTest != '3'):   #check for invalid inputs
             if(exampleTest != '1' and exampleTest !='2' and exampleTest != '3'):
-                exampleTest = input("Invalid input. Type '1' for a easy test, '2' for a normal test, and '3' for a hard test. \n")
+                exampleTest = input("Invalid input. Type '1' for an easy test, '2' for a normal test, and '3' for a hard test. \n")
 
             elif(exampleTest == '1' or exampleTest == '2' or exampleTest == '3'):
                 exampleTest = int(exampleTest)
